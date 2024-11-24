@@ -1,59 +1,63 @@
-# VideoGameCatalogue
+# Video Game Catalogue
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
+This simple two-page web application was built with **Angular 19**, **Bootstrap** and **Angular Router**. The application allows users to browse a list of video games, create a new video game, and edit/delete the details of an existing video game entry.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Browse Video Games**: View a list of video games with basic details (name, genre, rating, price, release year).
+- **Add Video Game Entry**: Create a new video game.
+- **Edit Video Game Entries**: Modify the details of an existing video game.
+- **Delete Video Game Entry**: Delete an existing video game.
 
-```bash
-ng serve
-```
+## Screenshots
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+![image](https://github.com/user-attachments/assets/fdd6f30f-41ea-4d14-bd14-c55db1089504)
 
-## Code scaffolding
+![image](https://github.com/user-attachments/assets/b1071e27-3a31-4c91-ba45-4ced14599257)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Technologies Used
 
-```bash
-ng generate component component-name
-```
+- **Angular 19**: Building a dynamic, single-page web application.
+- **Bootstrap**: A popular CSS framework for mobile-first, responsive design.
+- **Angular Router**: For managing navigation and routing between the browse and edit pages.
+- **TypeScript**: For better code structure, type safety, and development experience.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Installation
 
-```bash
-ng generate --help
-```
+### Prerequisites
 
-## Building
+- **Node.js** (LTS version)
+- **npm** (Node Package Manager)
 
-To build the project run:
+### Setup Instructions
 
-```bash
-ng build
-```
+1. Clone the repository:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    ```bash
+    git clone https://github.com/patelsmit11/video-game-catalogue.git
+    cd video-game-catalogue
+    ```
 
-## Running unit tests
+2. Install the dependencies:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    ```bash
+    npm install
+    ```
 
-```bash
-ng test
-```
+3. Start the Angular development server:
 
-## Running end-to-end tests
+    ```bash
+    ng serve
+    ```
 
-For end-to-end (e2e) testing, run:
+4. Open your browser and navigate to:
 
-```bash
-ng e2e
-```
+    ```
+    http://localhost:4200
+    ```
+  
+## Pages
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- **Browse Page** (`/browse`): Displays a list of all video games.
+- **Edit Page** (`/edit/:id`): Allows users to edit the details of an existing video game entry by its ID.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
