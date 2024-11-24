@@ -1,0 +1,50 @@
+<div class="container mt-5">
+
+  <!-- Header Section -->
+  <div class="text-center mb-4">
+    <h2 class="text-dark">
+      <i class="fas fa-gamepad me-2"></i> Video Game Catalogue
+    </h2>
+  </div>
+  <!-- Add Game Button -->
+  <div class="d-flex justify-content-end m-2">
+    <button routerLink="/edit/0" class="btn btn-success shadow-sm">
+      <i class="fas fa-plus"></i> Add New Game
+    </button>
+  </div>
+
+  <!-- Table Section -->
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Price</th>
+          <th>Rating</th>
+          <th>Publisher</th>
+          <th>Release Year</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games">
+          <td>{{ game.title }}</td>
+          <td>{{ genreKeys[game.genre].key }}</td>
+          <td>{{ '$' + game.price }}</td>
+          <td>{{ game.rating }}</td>
+          <td>{{ game.publisher }}</td>
+          <td>{{ game.releaseDate | date: 'yyyy-dd-MM' }}</td>
+          <td class="text-end">
+            <button class="btn btn-secondary btn-sm me-2" [routerLink]="'/edit/' + game.id">
+              <i class="fas fa-edit"></i> Edit
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="confirmDelete(game.id)">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

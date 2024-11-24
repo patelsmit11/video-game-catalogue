@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <div class="col-6 mx-auto">
+    <form [formGroup]="videoGameForm" (ngSubmit)="saveGame()">
+      <h2>{{ videoGameForm.get('id')?.value ? 'Edit Game' : 'Add Game' }}</h2>
+      <hr>
+      <!-- Title field -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" class="form-control" formControlName="title" placeholder="Enter the title" />
+        <div *ngIf="videoGameForm.get('title')?.invalid && videoGameForm.get('title')?.touched" class="text-danger">
+          Title is required.
+        </div>
+      </div>
+
+      <!-- Genre field -->
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <select id="genre" class="form-select" formControlName="genre">
+          <option *ngFor="let genre of genreKeys" [value]="genre.value">
+            {{ genre.key }}
+          </option>
+        </select>
+        <div *ngIf="videoGameForm.get('genre')?.invalid && videoGameForm.get('genre')?.touched" class="text-danger">
+          Genre is required.
+        </div>
+      </div>
+
+      <!-- Rating field -->
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" id="rating" class="form-control" formControlName="rating"
+          placeholder="Enter a rating (0-5)" min="0" max="5" />
+        <div *ngIf="videoGameForm.get('rating')?.invalid && videoGameForm.get('rating')?.touched" class="text-danger">
+          Rating must be between 0 and 5.
+        </div>
+      </div>
+
+      <!-- Price field -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" id="price" class="form-control" formControlName="price" placeholder="Enter the price"
+          step="0.01" />
+        <div *ngIf="videoGameForm.get('price')?.invalid && videoGameForm.get('price')?.touched" class="text-danger">
+          Price is required and must be greater than 0.
+        </div>
+      </div>
+
+      <!-- Publisher field -->
+      <div class="mb-3">
+        <label for="publisher" class="form-label">Publisher</label>
+        <input type="text" id="publisher" class="form-control" formControlName="publisher"
+          placeholder="Enter the publisher (optional)" />
+      </div>
+
+      <!-- Release Date field -->
+      <div class="mb-3">
+        <label for="releaseDate" class="form-label">Release Date</label>
+        <input type="date" id="releaseDate" class="form-control" formControlName="releaseDate" />
+        <div *ngIf="videoGameForm.get('releaseDate')?.invalid && videoGameForm.get('releaseDate')?.touched"
+          class="text-danger">
+          Release date is required.
+        </div>
+      </div>
+
+      <!-- Save button -->
+      <button class="btn btn-primary" type="submit" [disabled]="videoGameForm.invalid">
+        <i class="fas fa-save"></i> Save
+      </button>
+
+      <!-- Cancel button -->
+      <button class="btn btn-secondary ms-2" type="button" [routerLink]="'/'">
+        <i class="fas fa-times"></i> Cancel
+      </button>
+    </form>
+  </div>
+</div>
